@@ -19,7 +19,7 @@ router.get('/', function(req, res, next) {
     let list = [token, timestamp, nonce];
     list.sort();
     let sha1 = crypto.createHash('sha1');
-    list.map(sha1.update());
+    list.map(key => sha1.update(key));
     let hashcode = sha1.digest('hex');
     console.log("handle/GET func: hashcode, signature: ", hashcode, signature);
     if (hashcode == signature) {
