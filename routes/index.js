@@ -5,7 +5,8 @@ const crypto = require('crypto');
 /* GET home page. */
 router.get('/', function(req, res, next) {
   try {
-    let data = req.params;
+    let data = req.query;
+    console.log(data);
     if (Object.keys(data).length == 0) {
       res.send('no params');
     }
